@@ -69,32 +69,52 @@ let result
 
 let myArray = []
 
+let lastOperand
+
+let allOperands = ["+","-","*","/","%"]
+
 allButtons.forEach(element => {
   element.addEventListener("click",()=>{
     myPResult.innerText = "WELCOME"
     number = ""
-    if(element.innerText != "=" && element.innerText != "C"){
-      myArray.push(element.innerText) 
-      myArray.forEach(element => {
-        number += element
-        myPResult.innerText = number
-      });
-    } else if (element.innerText == "="){
-      myArray.forEach(element => {
-        number += element
-      });
-      console.log(number)
-      try{
-        result = eval(number)
-        myPResult.innerText = result
-      } catch(err){
-        myPResult.innerText = "ERROR"
-      }
-      //empty array each time so my newly clicked numbers are not added to my calculation string
-      myArray = []
-    } else if(element.innerText == "C"){
+
+    if(allOperands.includes(element.innerText) && allOperands.includes(lastOperand)){
+      myPResult.innerText = "ERROR"
       myArray = []
       number = ""
+      lastOperand = ""
+      console.log(lastOperand)
+    } else {
+      if(element.innerText != "=" && element.innerText != "C"){
+        myArray.push(element.innerText) 
+        myArray.forEach(element => {
+          number += element
+          myPResult.innerText = number
+        });
+        lastOperand = ""
+      } else if (element.innerText == "="){
+        myArray.forEach(element => {
+          number += element
+        });
+        try{
+          result = eval(number)
+          myPResult.innerText = result
+        } catch(err){
+          myPResult.innerText = "ERROR"
+        }
+        //empty array each time so my newly clicked numbers are not added to my calculation string
+        myArray = []
+        lastOperand = ""
+      } else if(element.innerText == "C"){
+        myArray = []
+        number = ""
+        lastOperand = ""
+      }
+    }
+    //Stock the element in a variable in case it is an operador to be able to compare it with my new input above
+    if(element.innerText == "+" || element.innerText == "-" || element.innerText == "*"|| element.innerText == "/"|| element.innerText == "%"){
+      lastOperand = element.innerText
+      console.log(lastOperand)
     }
   })
 });
