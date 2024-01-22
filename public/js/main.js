@@ -16,7 +16,7 @@ for (let i = 0; i <= 5; i++) {
   myOperatorButton.setAttribute("class","my-button")
   myOperators.appendChild(myOperatorButton)
 }
-console.log(myOperators)
+
 let myResultButton = document.querySelectorAll(".my-button")[16]
 
 myResultButton.classList.add("my-result-operator")
@@ -51,6 +51,71 @@ document.querySelectorAll(".my-p-button")[13].innerText = "/"
 document.querySelectorAll(".my-p-button")[14].innerText = "*"
 document.querySelectorAll(".my-p-button")[15].innerText = "%"
 document.querySelectorAll(".my-p-button")[16].innerText = "="
+
+//declaration of variabled for all buttons
+
+let myPResult = document.querySelector(".my-result")
+
+let arrayInputs = ""
+
+let number
+
+let operation
+
+let result
+
+let myArray = []
+
+allButtons.forEach(element => {
+  element.addEventListener("click",()=>{
+    myPResult.innerText = ""
+    number = ""
+    if(element.innerText != "="){
+      myArray.push(element.innerText) 
+    } else{
+      myArray.forEach(element => {
+        number += element
+      });
+      console.log(number)
+      result = eval(number)
+      myPResult.innerText = result
+      //
+      myArray = []
+    }
+  })
+});
+
+
+
+// let result
+
+// for (let i = 0; i < arrayInputs.length; i++) {
+//   if(arrayInputs[i] == "+" || arrayInputs[i] == "-" || arrayInputs[i] == "/" || arrayInputs[i] == "*" || arrayInputs[i] == "%") {
+//   let newArray = []
+//   newArray.push(arrayInputs[i],i)
+//   myObject['element' + i] = newArray;
+//   console.log(myObject)
+//   }
+// }
+
+// for (let i = 0; i < arrayInputs.length; i++) {
+//   if (arrayInputs[i] == "+" && arrayInputs[i] == "-" && arrayInputs[i] == "/" && arrayInputs[i] == "*" && arrayInputs[i] == "%") {
+//     index = i
+//   } else {
+//     for(let y = 0; y < index ;y++){
+//     number += arrayInputs[i]
+//     }
+  
+  // if (arrayInputs[i] != "+" && arrayInputs[i] != "-" && arrayInputs[i] != "/" && arrayInputs[i] != "*" && arrayInputs[i] != "%") {
+  //   number += element
+  //   console.log(number)
+  // } else{
+  //   operation = element
+  //   console.log(operation)
+  // }
+
+
+
 
 
 
