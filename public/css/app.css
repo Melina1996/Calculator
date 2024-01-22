@@ -11899,8 +11899,96 @@ main {
   align-items: center;
   justify-content: center;
 }
-main #my-container {
-  width: 350px;
+main #my-calculator {
+  width: 450px;
+  height: 500px;
+  background-color: #5b5a5d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main #my-calculator .my-container {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main #my-calculator .my-container .result-calculation {
+  width: 100%;
+  height: 90px;
+  background-color: black;
+  box-shadow: 0px 0px 5px 2px grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #my-calculator .my-container .result-calculation .my-result {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+main #my-calculator .my-container .my-buttons {
+  width: 100%;
+  height: 450px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+main #my-calculator .my-container .my-buttons .my-numbers {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+main #my-calculator .my-container .my-buttons .my-numbers .my-button {
+  width: 60px;
+  height: 60px;
+  background-color: #181718;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #my-calculator .my-container .my-buttons .my-numbers .my-button .my-p-button {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-weight: bolder;
+  font-size: 20px;
+}
+main #my-calculator .my-container .my-buttons .my-operators {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+main #my-calculator .my-container .my-buttons .my-operators .my-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main #my-calculator .my-container .my-buttons .my-operators .my-button .my-p-button {
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+main #my-calculator .my-container .my-buttons .my-operators .my-result-operator {
+  width: 132px;
+  height: 60px;
+  border-radius: 4px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=app.css.map */
