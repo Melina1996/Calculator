@@ -11894,8 +11894,8 @@ body {
 }
 
 .change-color-one {
-  background: rgb(171, 171, 165);
-  background: linear-gradient(0deg, rgb(171, 171, 165) 0%, rgb(183, 237, 194) 100%);
+  background: rgb(250, 250, 244);
+  background: linear-gradient(0deg, rgb(250, 250, 244) 0%, rgb(183, 237, 194) 100%);
 }
 
 .change-color-two {
