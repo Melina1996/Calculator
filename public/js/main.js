@@ -46,7 +46,8 @@ for (let i = 0; i <= 5; i++) {
     pOperators[i].innerHTML = allOperators[i]
 }
 
-//want my "="-button to be bigger than the other ones, add class
+
+//"="-button is bigger than the other ones, add class
 
 let myResultButton = document.querySelector(".my-operators").querySelectorAll(".my-button")[5]
 
@@ -56,6 +57,7 @@ myResultButton.classList.add("my-result-operator")
 //declaration of all my other necessary variables
 
 let myPResult = document.querySelector(".my-result")
+
 
 //all my variables
 myPResult.innerText = "WELCOME"
@@ -76,6 +78,7 @@ let allOperands = ["+","-","*","/","%"]
 
 let allColors = ["colorOne","colorTwo","colorThree","colorFour","colorFive"]
 
+//add EventListener to all of my buttons
 allButtons.forEach(element => {
   element.addEventListener("click",()=>{
 
@@ -99,12 +102,13 @@ allButtons.forEach(element => {
           calculation += element
         });
 
+      //in order to stop calculation in case of impossible Math calculation:
         try{
           result = eval(calculation)
           myPResult.innerText = result
-          //random index to select a random color
+          //random index to select a random background style 
           index = Math.floor(Math.random()*allColors.length)
-          //my random color
+          //my random background style
           style = allColors[index]
           switch (style) {
             case "colorOne":
