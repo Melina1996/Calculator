@@ -27,7 +27,7 @@ allButtons.forEach(element => {
   element.appendChild(newP)
 });
 
-
+//assign values to my paragraphs (1)numbers && (2)operators
 let allNumbers = ["7","8","9","4","5","6","1","2","3","0",".","C"]
 
 let pNumbers = document.querySelector(".my-numbers").querySelectorAll(".my-p-button")
@@ -39,28 +39,29 @@ for (let i = 0; i <= 11; i++) {
 let allOperators = ["+","-","/","*","%","="]
 
 let pOperators = document.querySelector(".my-operators").querySelectorAll(".my-p-button")
-console.log(pOperators)
 
 for (let i = 0; i <= 5; i++) {
     pOperators[i].innerHTML = allOperators[i]
 }
 
+
 //want my "="-button to be bigger than the other ones, add class
 
-let myResultButton = document.querySelectorAll(".my-button")[16]
+let myResultButton = document.querySelector(".my-operators").querySelectorAll(".my-button")[5]
 
 myResultButton.classList.add("my-result-operator")
 
 
-//declaration of variabled for all buttons
+//declaration of all my other necessary variables
 
 let myPResult = document.querySelector(".my-result")
 
+//
 myPResult.innerText = "WELCOME"
 
 let arrayInputs = ""
 
-let number
+let calculation
 
 let operation
 
@@ -75,29 +76,29 @@ let allOperands = ["+","-","*","/","%"]
 allButtons.forEach(element => {
   element.addEventListener("click",()=>{
     myPResult.innerText = "WELCOME"
-    number = ""
+    calculation = ""
 
     if(allOperands.includes(element.innerText) && allOperands.includes(lastOperand)){
       myPResult.innerText = "ERROR"
       myArray = []
-      number = ""
+      calculation = ""
       lastOperand = ""
       console.log(lastOperand)
     } else {
       if(element.innerText != "=" && element.innerText != "C"){
         myArray.push(element.innerText) 
         myArray.forEach(element => {
-          number += element
-          myPResult.innerText = number
+          calculation += element
+          myPResult.innerText = calculation
         });
         lastOperand = ""
       } else if (element.innerText == "="){
         myArray.forEach(element => {
-          number += element
+          calculation += element
         });
 
         try{
-          result = eval(number)
+          result = eval(calculation)
           myPResult.innerText = result
         } catch(err){
           myPResult.innerText = "ERROR"
@@ -107,7 +108,7 @@ allButtons.forEach(element => {
         lastOperand = ""
       } else if(element.innerText == "C"){
         myArray = []
-        number = ""
+        calculation = ""
         lastOperand = ""
       }
     }
@@ -118,45 +119,5 @@ allButtons.forEach(element => {
     }
   })
 });
-
-
-
-// let result
-
-// for (let i = 0; i < arrayInputs.length; i++) {
-//   if(arrayInputs[i] == "+" || arrayInputs[i] == "-" || arrayInputs[i] == "/" || arrayInputs[i] == "*" || arrayInputs[i] == "%") {
-//   let newArray = []
-//   newArray.push(arrayInputs[i],i)
-//   myObject['element' + i] = newArray;
-//   console.log(myObject)
-//   }
-// }
-
-// for (let i = 0; i < arrayInputs.length; i++) {
-//   if (arrayInputs[i] == "+" && arrayInputs[i] == "-" && arrayInputs[i] == "/" && arrayInputs[i] == "*" && arrayInputs[i] == "%") {
-//     index = i
-//   } else {
-//     for(let y = 0; y < index ;y++){
-//     number += arrayInputs[i]
-//     }
-  
-  // if (arrayInputs[i] != "+" && arrayInputs[i] != "-" && arrayInputs[i] != "/" && arrayInputs[i] != "*" && arrayInputs[i] != "%") {
-  //   number += element
-  //   console.log(number)
-  // } else{
-  //   operation = element
-  //   console.log(operation)
-  // }
-
-
-
-
-
-
-
-
-
-
-
 
 
