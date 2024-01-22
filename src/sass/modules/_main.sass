@@ -9,7 +9,9 @@ main
         width: 450px
         height: 500px
         background-color: #5b5a5d
-
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px        
+        border-radius: 10px
+        border: 1px solid  #5b5a5d
         display: flex
         align-items: center
         justify-content: center
@@ -49,6 +51,11 @@ main
                     flex-wrap: wrap
                     gap: 12px
                     .my-button
+                        //let per default border disappear
+                        border-width: 0
+                        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset
+                        //for box-shadows that are changed below and the transformation on the y-axis
+                        transition: box-shadow .15s,transform .15s
                         width: 60px
                         height: 60px
                         background-color: #181718
@@ -63,6 +70,15 @@ main
                             color: white
                             font-weight: bolder
                             font-size: 20px
+                    //when hovering over my button, a slight box-shadow is applied and it moves slightly up
+                    .my-button:hover 
+                        box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset
+                        transform: translateY(-1px)
+                    //when clicking on my button, an inner box-shadow is applied and it moves a bit downwards
+                    .my-button:active 
+                        box-shadow: #D6D6E7 0 3px 7px inset
+                        transform: translateY(1px)
+
                 .my-operators
                     width: 40%
                     height: 100%
@@ -103,14 +119,5 @@ main
 
 
         
-        
 
 
-
-
-
-
-
-
-
-    
