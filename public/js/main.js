@@ -14,8 +14,10 @@ let myOperators = document.querySelector(".my-operators")
 for (let i = 0; i <= 5; i++) {
   myOperatorButton = document.createElement("button")
   myOperatorButton.setAttribute("class","my-button")
+  myOperatorButton.setAttribute("operator","")
   myOperators.appendChild(myOperatorButton)
 }
+
 
 //add paragraph to each of the buttons
 
@@ -44,7 +46,6 @@ for (let i = 0; i <= 5; i++) {
     pOperators[i].innerHTML = allOperators[i]
 }
 
-
 //want my "="-button to be bigger than the other ones, add class
 
 let myResultButton = document.querySelector(".my-operators").querySelectorAll(".my-button")[5]
@@ -56,7 +57,7 @@ myResultButton.classList.add("my-result-operator")
 
 let myPResult = document.querySelector(".my-result")
 
-//
+//all my variables
 myPResult.innerText = "WELCOME"
 
 let arrayInputs = ""
@@ -73,17 +74,18 @@ let lastOperand
 
 let allOperands = ["+","-","*","/","%"]
 
+let allColors = ["colorOne","colorTwo","colorThree","colorFour","colorFive"]
+
 allButtons.forEach(element => {
   element.addEventListener("click",()=>{
+
     myPResult.innerText = "WELCOME"
     calculation = ""
 
+//each round I check if the last clicked button was an operator and if the current clicked button is one as well, in that case ERROR
     if(allOperands.includes(element.innerText) && allOperands.includes(lastOperand)){
       myPResult.innerText = "ERROR"
-      myArray = []
-      calculation = ""
       lastOperand = ""
-      console.log(lastOperand)
     } else {
       if(element.innerText != "=" && element.innerText != "C"){
         myArray.push(element.innerText) 
@@ -100,12 +102,37 @@ allButtons.forEach(element => {
         try{
           result = eval(calculation)
           myPResult.innerText = result
+          //random index to select a random color
+          index = Math.floor(Math.random()*allColors.length)
+          //my random color
+          style = allColors[index]
+          switch (style) {
+            case "colorOne":
+              document.body.classList.add("change-color-one")
+              break;
+            case "colorTwo":
+              document.body.classList.add("change-color-two")
+              break;
+            case "colorThree":
+              document.body.classList.add("change-color-three")
+            break;
+            case "colorFour":
+              document.body.classList.add("change-color-four")
+            break;
+            case "colorFive":
+              document.body.classList.add("change-color-five")
+            break;
+            default:
+              break;
+          }
         } catch(err){
           myPResult.innerText = "ERROR"
         }
         //empty array each time so my newly clicked numbers are not added to my calculation string
         myArray = []
         lastOperand = ""
+        calculation = ""
+
       } else if(element.innerText == "C"){
         myArray = []
         calculation = ""
@@ -117,6 +144,7 @@ allButtons.forEach(element => {
       lastOperand = element.innerText
       console.log(lastOperand)
     }
+
   })
 });
 
