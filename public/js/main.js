@@ -3,7 +3,7 @@
 let myNumbers = document.querySelector(".my-numbers")
 
 //Loop to create my number-buttons
-for (let i = 0; i <= 10; i++) {
+for (let i = 0; i <= 11; i++) {
   myNumberButton = document.createElement("button")
   myNumberButton.setAttribute("class","my-button")
   myNumbers.appendChild(myNumberButton)
@@ -44,17 +44,20 @@ document.querySelectorAll(".my-p-button")[7].innerText = "2"
 document.querySelectorAll(".my-p-button")[8].innerText = "3"
 document.querySelectorAll(".my-p-button")[9].innerText = "0"
 document.querySelectorAll(".my-p-button")[10].innerText = "."
+document.querySelectorAll(".my-p-button")[11].innerText = "C"
 
-document.querySelectorAll(".my-p-button")[11].innerText = "+"
-document.querySelectorAll(".my-p-button")[12].innerText = "-"
-document.querySelectorAll(".my-p-button")[13].innerText = "/"
-document.querySelectorAll(".my-p-button")[14].innerText = "*"
-document.querySelectorAll(".my-p-button")[15].innerText = "%"
-document.querySelectorAll(".my-p-button")[16].innerText = "="
+document.querySelectorAll(".my-p-button")[12].innerText = "+"
+document.querySelectorAll(".my-p-button")[13].innerText = "-"
+document.querySelectorAll(".my-p-button")[14].innerText = "/"
+document.querySelectorAll(".my-p-button")[15].innerText = "*"
+document.querySelectorAll(".my-p-button")[16].innerText = "%"
+document.querySelectorAll(".my-p-button")[17].innerText = "="
 
 //declaration of variabled for all buttons
 
 let myPResult = document.querySelector(".my-result")
+
+myPResult.innerText = "WELCOME"
 
 let arrayInputs = ""
 
@@ -68,19 +71,30 @@ let myArray = []
 
 allButtons.forEach(element => {
   element.addEventListener("click",()=>{
-    myPResult.innerText = ""
+    myPResult.innerText = "WELCOME"
     number = ""
-    if(element.innerText != "="){
+    if(element.innerText != "=" && element.innerText != "C"){
       myArray.push(element.innerText) 
-    } else{
+      myArray.forEach(element => {
+        number += element
+        myPResult.innerText = number
+      });
+    } else if (element.innerText == "="){
       myArray.forEach(element => {
         number += element
       });
       console.log(number)
-      result = eval(number)
-      myPResult.innerText = result
-      //
+      try{
+        result = eval(number)
+        myPResult.innerText = result
+      } catch(err){
+        myPResult.innerText = "ERROR"
+      }
+      //empty array each time so my newly clicked numbers are not added to my calculation string
       myArray = []
+    } else if(element.innerText == "C"){
+      myArray = []
+      number = ""
     }
   })
 });

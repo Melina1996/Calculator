@@ -11930,7 +11930,10 @@ main #my-calculator .my-container .result-calculation {
 main #my-calculator .my-container .result-calculation .my-result {
   margin: 0;
   padding: 0;
-  color: white;
+  font-family: Calculator;
+  font-size: 45px;
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa, 0 0 102px #0fa, 0 0 151px #0fa;
 }
 main #my-calculator .my-container .my-buttons {
   width: 100%;
@@ -11981,8 +11984,12 @@ main #my-calculator .my-container .my-buttons .my-operators {
   gap: 12px;
 }
 main #my-calculator .my-container .my-buttons .my-operators .my-button {
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transition: box-shadow 0.15s, transform 0.15s;
   width: 60px;
   height: 60px;
+  background-color: white;
   border-radius: 4px;
   display: flex;
   justify-content: center;
@@ -11994,6 +12001,14 @@ main #my-calculator .my-container .my-buttons .my-operators .my-button .my-p-but
   color: black;
   font-weight: bolder;
   font-size: 20px;
+}
+main #my-calculator .my-container .my-buttons .my-operators .my-button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, grey 0 -3px 0 inset;
+  transform: translateY(-1px);
+}
+main #my-calculator .my-container .my-buttons .my-operators .my-button:active {
+  box-shadow: grey 0 3px 7px inset;
+  transform: translateY(1px);
 }
 main #my-calculator .my-container .my-buttons .my-operators .my-result-operator {
   width: 132px;
